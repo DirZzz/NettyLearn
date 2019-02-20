@@ -1,11 +1,8 @@
 package zjc.learn.HelloNetty;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.CharsetUtil;
 
 import java.time.LocalDateTime;
 
@@ -21,11 +18,11 @@ public class EchoServiceHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		ByteBuf buf = (ByteBuf) msg;
-		String s = buf.toString(CharsetUtil.UTF_8);
-		System.out.println(s);
+		UserBean bean = (UserBean) msg;
+		String s = bean.toString();
+		System.out.println(bean.toString());
 		String reback = "reback msg " + LocalDateTime.now().toString() + ": res_ " + s;
-		ctx.writeAndFlush(Unpooled.copiedBuffer(reback,CharsetUtil.UTF_8));
+		ctx.writeAndFlush(reback);
 	}
 
 	@Override

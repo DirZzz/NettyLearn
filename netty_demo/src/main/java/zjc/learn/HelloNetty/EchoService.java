@@ -42,8 +42,9 @@ public class EchoService {
 						@Override
 						public void initChannel(SocketChannel ch) throws Exception {
 							ch.pipeline()
-									.addFirst(new EchoClientHandler())
-									.addFirst(new POJOEncoder());
+									.addFirst(new EchoServiceHandler())
+									.addFirst(new POJOEncoder())
+									.addFirst(new POJODecoder());
 						}
 					});
 

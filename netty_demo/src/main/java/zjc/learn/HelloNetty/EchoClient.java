@@ -47,7 +47,7 @@ public class EchoClient {
 						 */
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
-							ch.pipeline().addFirst(new EchoClientHandler()).addFirst(new POJOEncoder());
+							ch.pipeline().addFirst(new EchoClientHandler()).addFirst(new POJOEncoder()).addFirst(new POJODecoder());
 						}
 					})
 					.connect();

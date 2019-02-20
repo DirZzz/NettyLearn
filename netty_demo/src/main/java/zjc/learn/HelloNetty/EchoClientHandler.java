@@ -25,7 +25,6 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		super.channelActive(ctx);
-//		ctx.writeAndFlush(Unpooled.copiedBuffer("hello netty", CharsetUtil.UTF_8));
 		ctx.writeAndFlush(new UserBean("timer",123));
 	}
 
