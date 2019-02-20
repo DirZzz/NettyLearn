@@ -30,4 +30,3 @@ hs_err_pid*
 #java class
 target
 
-src/main/java/zjc/learn/HelloNetty/TestCodec.java
